@@ -34,7 +34,12 @@ module.exports = function loadPlugin(projectPath, Plugin) {
        * @param  {Object} res Express.js response
        */
       getCurrentUserSettings(req, res) {
-        const data = {};
+        const config = req.we.config,
+          data = {
+            appName: config.appName,
+            appLogo: config.appLogo,
+            site: config.site
+          };
 
         if (req.isAuthenticated()) {
           // add the authenticated user in response:
