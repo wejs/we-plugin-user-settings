@@ -1,8 +1,13 @@
 # We.js user settings plugin
 
-## API
+We.js plugin to expose user and system settings
 
-TODO
+## URls
+
+
+### Get user settings
+
+`get /user-settings`
 
 ## Links
 
