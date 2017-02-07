@@ -18,10 +18,15 @@
     "we-plugin-user": "^1.1.4",
     "we-test-tools": "wejs/we-test-tools"
   },
+  "repository": "wejs/we-plugin-user-settings",
   "license": "MIT",
+  "author": "Alberto Souza <contato@albertosouza.net>",
   "keywords": [
     "wejs-plugin"
   ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "wejs": {
     "plugins": {
       "we-plugin-user": true,
