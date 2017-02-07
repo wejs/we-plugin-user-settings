@@ -42,7 +42,13 @@ module.exports = function loadPlugin(projectPath, Plugin) {
           data.authenticatedUserRoleNames = req.userRoleNames;
         }
 
-        req.we.hooks.trigger('we-plugin-user-settings:getCurrentUserSettings', (err)=> {
+        req.we.hooks.trigger(
+          'we-plugin-user-settings:getCurrentUserSettings',
+        {
+          req: req,
+          res: res,
+          data: data
+        }, (err)=> {
           if (err) return res.serverError(err);
 
           res.status(200).send(data);
