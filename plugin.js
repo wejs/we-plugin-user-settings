@@ -34,20 +34,36 @@ module.exports = function loadPlugin(projectPath, Plugin) {
        * @param  {Object} res Express.js response
        */
       getCurrentUserSettings(req, res) {
-        const config = req.we.config,
+        const we = req.we,
+          config = we.config,
           data = {
             appName: config.appName,
             appLogo: config.appLogo,
-            site: config.site
+            site: config.site,
+            locales: config.i18n.locales,
+            defaultLocale: config.i18n.defaultLocale,
           };
 
         if (req.isAuthenticated()) {
           // add the authenticated user in response:
           data.authenticatedUser = req.user;
           data.authenticatedUserRoleNames = req.userRoleNames;
+          // locale:
+          if (
+            req.user.language &&
+            config.i18n.locales.indexOf(req.user.language)
+          ) {
+            data.activeLocale = req.user.language;
+          } else {
+            // authenticated user not have an locale or is invalid:
+            data.activeLocale = data.defaultLocale;
+          }
+        } else {
+          // unAuthenticated:
+          data.activeLocale = data.defaultLocale;
         }
 
-        req.we.hooks.trigger(
+        we.hooks.trigger(
           'we-plugin-user-settings:getCurrentUserSettings',
         {
           req: req,
