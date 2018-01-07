@@ -42,6 +42,7 @@ module.exports = function loadPlugin(projectPath, Plugin) {
             site: config.site,
             locales: config.i18n.locales,
             defaultLocale: config.i18n.defaultLocale,
+            plugins: we.pluginNames
           };
 
         if (req.isAuthenticated()) {
