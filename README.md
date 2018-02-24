@@ -32,3 +32,7 @@ we.hooks.on('we-plugin-user-settings:getCurrentUserSettings', function(ctx, done
 ## Copyright and license
 
 Copyright Alberto Souza <contato@albertosouza.net> and contributors , under [the MIT license](https://github.com/wejs/we-core/blob/master/LICENSE.md).
+
+## Sponsored by
+
+- Linky Systems: https://linkysystems.com
