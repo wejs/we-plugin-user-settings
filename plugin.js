@@ -87,8 +87,8 @@ module.exports = function loadPlugin(projectPath, Plugin) {
       ctx.data.userPermissions = {};
 
       if (ctx.req.userRoleNames.indexOf('administrator') > -1) {
-        // skip if user id admin:
-        return done();
+        // skip if user is admin:
+        return;
       }
 
       for (let permission in plugin.we.acl.permissions) {
