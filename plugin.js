@@ -64,6 +64,10 @@ module.exports = function loadPlugin(projectPath, Plugin) {
           data.activeLocale = data.defaultLocale;
         }
 
+        plugin.setCurrentUserPermissions({
+          req, res, data
+        });
+
         we.hooks.trigger(
           'we-plugin-user-settings:getCurrentUserSettings',
         {
@@ -77,6 +81,22 @@ module.exports = function loadPlugin(projectPath, Plugin) {
         });
       }
     });
+
+    plugin.setCurrentUserPermissions = function(ctx) {
+      // ctx = {req: req,res: res,data: data}
+      ctx.data.userPermissions = {};
+
+      if (ctx.req.userRoleNames.indexOf('administrator') > -1) {
+        // skip if user id admin:
+        return done();
+      }
+
+      for (let permission in plugin.we.acl.permissions) {
+        if (plugin.we.acl.canStatic(permission, ctx.req.userRoleNames)) {
+          ctx.data.userPermissions[permission] = true;
+        }
+      }
+    };
 
     done();
   };
