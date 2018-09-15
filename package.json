@@ -7,14 +7,14 @@
     "test": "NODE_ENV=test LOG_LV=info ./node_modules/.bin/mocha test/bootstrap.js test/**/*.test.js"
   },
   "devDependencies": {
-    "express-mysql-session": "^1.2.3",
-    "mocha": "^5.0.1",
-    "mysql2": "^1.5.2",
-    "supertest": "^3.0.0",
+    "express-mysql-session": "^2.0.1",
+    "mocha": "^5.2.0",
+    "mysql2": "^1.6.1",
+    "supertest": "^3.3.0",
     "we-core": "^2",
-    "we-plugin-acl": "^1.2.11",
-    "we-plugin-auth": "^2.0.0",
-    "we-plugin-user": "^2.0.0",
+    "we-plugin-acl": "^1.2.13",
+    "we-plugin-auth": "^2.2.1",
+    "we-plugin-user": "^2.0.1",
     "we-test-tools": "wejs/we-test-tools"
   },
   "repository": "wejs/we-plugin-user-settings",

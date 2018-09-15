@@ -40,8 +40,12 @@ module.exports = function loadPlugin(projectPath, Plugin) {
             appName: config.appName,
             appLogo: config.appLogo,
             site: config.site,
+            hostname: config.hostname,
+            queryDefaultLimit: config.queryDefaultLimit,
+            queryMaxLimit: config.queryMaxLimit,
             locales: config.i18n.locales,
             defaultLocale: config.i18n.defaultLocale,
+            date: config.date, // date settings like dateFormat
             plugins: we.pluginNames
           };
 
